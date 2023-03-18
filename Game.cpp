@@ -63,4 +63,6 @@ void Game::printBoard()
 
         odds = !odds;
     }
+
+    std::cout << "\u2655" << std::endl;
 }
