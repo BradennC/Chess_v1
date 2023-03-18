@@ -9,6 +9,8 @@ void Game::setBoard() {
 
 void Game::printBoard()
 {
+    bool odds = false;
+
     for (int row = 0; row < 10; row++)
     {   
         if (row >= 1 && row <=8){
@@ -22,11 +24,31 @@ void Game::printBoard()
         {
             if (row == 0 || row ==9)
             {
-                std::cout << static_cast<char>('A' + col ) << " ";
+                std::cout << static_cast<char>('A' + col ) << "  ";
             }
             if (row > 0 && row < 9) 
             {
-                std:: cout << " |";
+                if (odds)
+                {
+                    if (col % 2 != 0)
+                    {
+                        std:: cout << "\u001b[40m  \u001b[0m|";
+                    } else
+                    {
+                        std:: cout << "\u001b[47;1m  \u001b[0m|";
+                    }
+                    
+                }
+                else {
+                    if (col % 2 == 0)
+                    {
+                        std:: cout << "\u001b[40m  \u001b[0m|";
+                    } else
+                    {
+                        std:: cout << "\u001b[47;1m  \u001b[0m|";
+                    }
+                }
+                
             }
         }
 
@@ -38,5 +60,7 @@ void Game::printBoard()
         }
 
         std::cout << std::endl;
+
+        odds = !odds;
     }
 }
