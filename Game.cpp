@@ -9,25 +9,34 @@ void Game::setBoard() {
 
 void Game::printBoard()
 {
-    for (int row = 0; row < 8; row++)
+    for (int row = 0; row < 10; row++)
     {   
-        std::cout << row + 1 << "|";
+        if (row >= 1 && row <=8){
+            std::cout << row << "|";
+        }
+        else {
+            std::cout << "  ";
+        }
 
         for (int col = 0; col < 8; col++)
         {
-            if (row == 0)
+            if (row == 0 || row ==9)
             {
-                std::cout << static_cast<char>('A' + col ) << "|";
+                std::cout << static_cast<char>('A' + col ) << " ";
             }
-            if (row == 7)
-            {
-                std::cout << static_cast<char>('A' + col ) << "|";
-            }
-            if (row > 0 && row < 7) 
+            if (row > 0 && row < 9) 
             {
                 std:: cout << " |";
             }
         }
+
+        if (row >= 1 && row <=8){
+            std::cout << row;
+        }
+        else {
+            std::cout << "  ";
+        }
+
         std::cout << std::endl;
     }
 }
